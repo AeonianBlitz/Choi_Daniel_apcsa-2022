@@ -1,4 +1,5 @@
 import java.awt.CardLayout;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -32,6 +33,12 @@ public class CelebrityFrame extends JFrame
 	 */
 	private CelebrityGame controller;
 	
+	private static final String GAME_PANEL = "GAME";
+	
+	private static final String START_PANEL = "START";
+	
+	private CardLayout cardLayout;
+	
 	
 	/**
 	 * Builds an instance of the CelebFrame with a reference to the CelebrityGame instance.
@@ -41,15 +48,32 @@ public class CelebrityFrame extends JFrame
 	{
 		//The first line of any subclass should ALWAYS be a correct call to the super constructor.
 		super();
+		controller = controllerRef;
+		startPanel = new StartPanel(controller);
+		gamePanel = new CelebrityPanel(controller);
+		
+		//CardLayout functionality - works in switching the screens but doesnt add the first clue
+//		panelCards = new JPanel(new CardLayout());
+//		cardLayout = new CardLayout();
+//		panelCards = (JPanel) this.getContentPane();
+//	    panelCards.setLayout(cardLayout);
+//		panelCards.add(startPanel, START_PANEL);
+//		panelCards.add(gamePanel, GAME_PANEL);
+		
+		setupFrame();	
+		
 	
 	}
-	
 	/**
 	 * Configures the JFrame window subclass to add the panel and set size based information.
 	 */
 	private void setupFrame()
 	{
-		
+		startPanel = new StartPanel(controller);
+		gamePanel = new CelebrityPanel(controller);
+		setSize(500,500);
+		setLocation(150,50);
+		setVisible(true);
 	}
 	
 	/**
@@ -58,6 +82,18 @@ public class CelebrityFrame extends JFrame
 	 */
 	public void replaceScreen(String screen)
 	{
+		
+		//cardLayout.show(panelCards, screen);
+		
+		if(screen.equals("GAME")) {
+			remove(startPanel);
+			add(gamePanel);
+			gamePanel.addClue(controller.sendClue());
+		}
+		else if(screen.equals("START")){
+			super.remove(gamePanel);
+			add(startPanel);
+		}
 		
 	}
 	
