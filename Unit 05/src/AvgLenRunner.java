@@ -1,7 +1,7 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
-//Date -
+//Name - Daniel Choi
+//Date - 1/26/22
 
 public class AvgLenRunner
 {

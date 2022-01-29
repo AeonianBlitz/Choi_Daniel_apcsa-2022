@@ -1,12 +1,15 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
-//Date -
+//Name - Daniel Choi
+//Date - 1/26/22
 
 public class AvgLen
 {
    public static double go( String a, String b )
 	{
-		return 0;
+	   double one = a.length();
+	   double two = b.length();
+	   double avg = (one + two) / 2;
+	   return avg;
 	}
 }

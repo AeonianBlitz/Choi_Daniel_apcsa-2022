@@ -1,7 +1,7 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
-//Date -
+//Name - Daniel Choi
+//Date - 1 / 27 / 22
 
 public class VowelsRunner
 {
