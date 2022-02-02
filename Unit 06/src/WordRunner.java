@@ -1,3 +1,4 @@
+
 //(c) A+ Computer Science
 //www.apluscompsci.com
 //Name
@@ -8,6 +9,17 @@ public class WordRunner
 {
 	public static void main ( String[] args )
 	{
-		//add test cases		
+		Word test = new Word();
+		//add test cases
+		test.setString("Hello");
+		System.out.println(test.toString());
+		test.setString("World");
+		System.out.println(test.toString());
+		test.setString("JukeBox");
+		System.out.println(test.toString());
+		test.setString("TCEA");
+		System.out.println(test.toString());
+		test.setString("UIL");
+		System.out.println(test.toString());
 	}
 }
