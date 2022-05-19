@@ -112,6 +112,32 @@ public class Picture extends SimplePicture
     }
   }
   
+  public void keepOnlyRed()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setBlue(0);
+        pixelObj.setGreen(0);
+      }
+    }
+  }
+  
+  public void keepOnlyGreen()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setRed(0);
+        pixelObj.setBlue(0);
+      }
+    }
+  }
+  
   /** Method to negate all pixels in a picture */
   public void negate()
   {
@@ -270,6 +296,52 @@ public class Picture extends SimplePicture
     }
   }
   
+  public void mirrorArms()
+  {
+	  Pixel topPixel = null;
+	  Pixel botPixel = null;
+	  Pixel[][] pixels = this.getPixels2D();
+	  // loop through the rows
+	  for (int row = 155; row < 191; row++)
+	  	{
+		  	// loop through the columns
+		  for (int col = 98; col < 300; col++)
+		  	{
+			  topPixel = pixels[row][col];
+  			botPixel = pixels[191-row+191][col];
+  			botPixel.setColor(topPixel.getColor());
+		  	}
+	  	}
+  }
+  
+  public void mirrorGull()
+  {
+	  int mirrorPoint = 350;
+
+	  Pixel leftPixel = null;
+	  Pixel rightPixel = null;
+	  Pixel[][] pixels = this.getPixels2D();
+  }
+  
+  public void mirrorDiagonal()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel leftPixel = null;
+	  Pixel rightPixel = null;
+
+	  int max = pixels.length;
+	  if (pixels[0].length < max)
+		  max = pixels[0].length;
+
+	  for (int row = 1; row < max; row++)
+		  for (int col = 0; col < row; col++)
+		  {
+		  leftPixel = pixels[row][col];
+		  rightPixel = pixels[col][row];
+		  rightPixel.setColor(leftPixel.getColor());
+		  }
+  }
+	  
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
     * current picture

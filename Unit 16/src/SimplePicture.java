@@ -488,8 +488,7 @@ public class SimplePicture implements DigitalPicture
 
      } catch (Exception ex) {
          System.out.println("There was an error trying to open " + fileName);
-         bufferedImage = new BufferedImage(600,200,
-                                           BufferedImage.TYPE_INT_RGB);
+         bufferedImage = new BufferedImage(600,200,BufferedImage.TYPE_INT_RGB);
          addMessage("Couldn't load " + fileName,5,100);
          return false;
      }
